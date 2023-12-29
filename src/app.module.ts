@@ -3,15 +3,16 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { TodoModule } from './todo/todo.module';
 import { UserModule } from './user/user.module';
-import { DbModule } from './db/db.module';
 import { ConfigModule } from '@nestjs/config';
+import { DATABASE_CONFIG } from 'db/config';
+import { TypeOrmModule } from '@nestjs/typeorm';
 
 @Module({
   imports: [
     ConfigModule.forRoot({
       isGlobal: true,
     }),
-    DbModule,
+    TypeOrmModule.forRoot(DATABASE_CONFIG),
     TodoModule,
     UserModule,
   ],
