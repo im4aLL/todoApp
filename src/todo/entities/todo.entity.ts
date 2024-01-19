@@ -3,15 +3,15 @@ import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from 'typeorm';
 
 @Entity()
 export class Todo {
-  @PrimaryGeneratedColumn('uuid')
-  id: string;
+    @PrimaryGeneratedColumn('uuid')
+    id: string;
 
-  @Column()
-  name: string;
+    @Column()
+    name: string;
 
-  @Column({ default: false })
-  isCompleted: boolean;
+    @Column({ default: false })
+    isCompleted: boolean;
 
-  @ManyToOne(() => User, (user) => user.todos)
-  user: User;
+    @ManyToOne(() => User, (user) => user.todos)
+    user: User;
 }

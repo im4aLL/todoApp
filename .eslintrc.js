@@ -9,14 +9,13 @@ module.exports = {
     extends: [
         'plugin:@typescript-eslint/recommended',
         'plugin:prettier/recommended',
-        'plugin:jsdoc/recommended-typescript',
     ],
     root: true,
     env: {
         node: true,
         jest: true,
     },
-    ignorePatterns: ['.eslintrc.js'],
+    ignorePatterns: ['.eslintrc.js', '**/main.ts'],
     rules: {
         'jsdoc/require-jsdoc': [
             'error',
@@ -30,11 +29,12 @@ module.exports = {
                 },
             },
         ],
+        'jsdoc/tag-lines': 'off',
         // '@typescript-eslint/interface-name-prefix': 'off',
         '@typescript-eslint/explicit-module-boundary-types': 'off',
         'no-nested-ternary': 'error',
         'max-lines-per-function': ['error', { max: 20 }],
-        'max-nested-callbacks': ['error', { max: 2 }],
+        'max-nested-callbacks': ['error', { max: 3 }],
         complexity: ['error', 8],
         'dot-notation': 'error',
         'max-params': ['error', 5],
